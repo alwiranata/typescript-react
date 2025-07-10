@@ -1,27 +1,16 @@
-import { useState } from "react"
-
-
+import useCounter from "../hooks/useCounter"
 
 const Counter = () => {
-    const [count, setCount] = useState(0)
-
-    const handleIncrement = () => {
-        // alert("Increment")
-        setCount(count + 1)
-    }
-
-    const handleDecrement = () => {
-        // alert("Decrement")
-        setCount(count - 1)
-    }
+   const {counter ,handleIncrement,handleDecrement ,handleReset} = useCounter()
 
     return (
         <>   
-        <div className="container">
+        <button className="container"  >
             <span className="block" onClick={handleIncrement}>+</span>
-            <span className="block">{count}</span>
+            <span className="block">{counter}</span>
             <span className = "block" onClick={handleDecrement}>-</span>
-        </div>
+            <span className="block" onClick={handleReset}>Reset</span>
+        </button>
         </>
     )
 }
