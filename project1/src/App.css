@@ -1,0 +1,17 @@
+* {
+  margin:  0;
+  padding:  0;
+}
+.card {
+  border: 1px solid black;
+  margin: 20px;
+  padding: 20px;
+  width: 300px; 
+  text-align: center;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+}
+
