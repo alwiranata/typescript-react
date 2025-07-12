@@ -1,9 +1,8 @@
 // import Navbar from "./components/Navbar"
 // import Footer from "./components/Footer"
 // import ProfileCard from "./components/ProfileCard"
-import './App.css'
+// import './App.css'
 
-import Counter from "./components/Counter"
 
 // type Students = {
 //   id :string
@@ -34,21 +33,12 @@ import Counter from "./components/Counter"
   
 // ]
 
+import RoutePage from "./routes/route"
+
 function App() {
   return (
-    // <>
-    // <Navbar/>
-    // <ProfileCard name="Aldo Wiranata" nim = "2455201036" prodi="Ti"/>
-    // <ProfileCard name="Aldo Wiranata" nim = "2455201037" prodi="Ti"/>
-    // <ProfileCard name="Aldo Wiranata" nim = "2455201038" prodi="Ilkom"/>
-
-    // {students.map((student) => {
-    //   return <ProfileCard key={student.id}   name={student.name} nim={student.nim} prodi={student.prodi}/>
-    // })}
-    // <Footer/>
-    // </>
     <>
-     < Counter/>
+      <RoutePage/>
     </>
   )
 }
