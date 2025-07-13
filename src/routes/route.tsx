@@ -4,6 +4,7 @@ import TermPage from "../pages/TermPage"
 import ProductPage from "../pages/ProductPage"
 import NotFoundPage from "../pages/NotFoundPage"
 import ListProductPage from "../pages/ListProductPage"
+import FormPage from "../pages/FormPage"
 
 
 const RoutePage = () => {
@@ -15,6 +16,7 @@ const RoutePage = () => {
                 <Route path="*" element ={<NotFoundPage/>} />
                 <Route path="/product/:name/:id" element={<ProductPage/>} />
                 <Route path="/list-product" element={<ListProductPage/>}/>
+                <Route path="/form" element={<FormPage/>}></Route>
             </Routes>
         </>
     )
