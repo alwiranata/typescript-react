@@ -6,6 +6,7 @@ import NotFoundPage from "../pages/NotFoundPage"
 import ListProductPage from "../pages/ListProductPage"
 import FormPage from "../pages/FormPage"
 import HookPage from "../pages/HookPage"
+import EmployeesPage from "../pages/EmployeesPage"
 
 
 const RoutePage = () => {
@@ -20,6 +21,7 @@ const RoutePage = () => {
                 <Route path="/list-product" element={<ListProductPage/>}/>
                 <Route path="/form" element={<FormPage/>}/>
                 <Route path="/hook" element={<HookPage/>} />
+                <Route path="/employees" element={<EmployeesPage/>}/>
             </Routes>
         </>
     )

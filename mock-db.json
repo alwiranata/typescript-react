@@ -1,0 +1,8 @@
+{
+	"employees": [
+        {"id": 1, "name": "Aldo WIranata"},
+        {"id": 2, "name" : "PW" }
+    ],
+	"products": [],
+	"todos": []
+}
