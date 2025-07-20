@@ -1,33 +1,24 @@
-import { useState } from "react";
-
-type Employees = {
-    id: number
-    name: string
-}
-
-
+import useEffectEmployess from "../api/useFetchEmployees"
+import useCreateEmployee from "../api/useCreateEmployee"
+import { useState } from "react"
+import useDeleteEmployee from "../api/useDeleteEmployee"
 
 const EmployeesPage = () => {
-    const [employees, setEmployees] = useState<Employees[]>([])
-    const [ loading , setLoading] = useState(false)
-    const fetchEmployees = async () => {
-        try {
-            setLoading(true)
-            
-            const response = await fetch("http://localhost:3000/employees", {
-                method: "GET"
-            })
-            const responseJson = await response.json() as Employees[];
+    const [inputText ,setInputText] =useState("")
 
-            setEmployees(responseJson)
+    const { fetchEmployees, datas, error, loading } = useEffectEmployess()
+    const { errorText , loadingInput ,handleCreateEmployee} = useCreateEmployee()
+    const {deleteError ,deleteLoading ,deleteEmployee} = useDeleteEmployee()
 
-        } catch (error) {
-            alert("Gaggal Mengambil data Employess")
-        } finally {
-            setLoading(false)
-        }
+    const handleCreateEmployees = async () => {
+        await handleCreateEmployee(inputText)
+        await fetchEmployees()
     }
-    // json-server mock-db.json -p 3000
+
+    const handleDeleteEmployee = async (id : string) =>{
+        await deleteEmployee(id)
+        await fetchEmployees()
+    }
 
     return (
         <>
@@ -37,24 +28,34 @@ const EmployeesPage = () => {
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
-                        employees.map((employee) => {
+                        datas.map((data) => {
                             return (
-                                <tr key={employee.id}>
-                                    <td>{employee.id}</td>
-                                    <td>{employee.name}</td>
+                                <tr key={data.id}>
+                                    <td>{data.id}</td>
+                                    <td>{data.name}</td>
+                                    <td><button disabled={deleteLoading} onClick={() => handleDeleteEmployee(data.id)}>Delete</button></td>
                                 </tr>
                             )
                         })
                     }
                 </tbody>
-
             </table>
+            {deleteLoading && <p>Loading ...</p>}
+            {deleteError && <p style={{color :"red"}}>Error </p>}
+            <br />
+            <input type="text" onChange={(e) => setInputText(e.target.value)}  value={inputText} />
+            <button onClick={handleCreateEmployees} disabled={loadingInput}>Create Name</button>
+            {loadingInput && <p>Loading...</p>}
+            {errorText && <p style={{color : "red"}}>{errorText}</p>}
+            <br />
             <button disabled={loading} onClick={fetchEmployees}>Click</button>
             {loading && <p>Loading...</p>}
+            {error && <p style={{ color: "red" }}>{error}</p>}
         </>
     )
 }
