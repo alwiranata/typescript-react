@@ -3,7 +3,6 @@
 // import ProfileCard from "./components/ProfileCard"
 // import './App.css'
 
-
 // type Students = {
 //   id :string
 //   name : string
@@ -30,17 +29,17 @@
 //     nim : "2455201035",
 //     prodi : "TI"
 //   }
-  
+
 // ]
 
-import RoutePage from "./routes/route"
+import RoutePage from './routes/route';
 
 function App() {
   return (
     <>
-      <RoutePage/>
+      <RoutePage />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

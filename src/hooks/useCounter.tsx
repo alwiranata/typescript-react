@@ -1,26 +1,26 @@
-import { useState } from "react"
+import {useState} from "react"
 
-const  useCounter  = () => {
-    const [counter ,setCounter] = useState<number>(0)
+const useCounter = () => {
+	const [counter, setCounter] = useState<number>(0)
 
-    const handleIncrement = () => {
-        setCounter(counter + 1)
-    }
+	const handleIncrement = () => {
+		setCounter(counter + 1)
+	}
 
-    const handleDecrement =() => {
-        setCounter(counter -1)
-    }
+	const handleDecrement = () => {
+		setCounter(counter - 1)
+	}
 
-    const handleReset = () => {
-        setCounter(0)
-    }
+	const handleReset = () => {
+		setCounter(0)
+	}
 
-    return {
-        counter,
-        handleIncrement,
-        handleDecrement,
-        handleReset
-    }
+	return {
+		counter,
+		handleIncrement,
+		handleDecrement,
+		handleReset,
+	}
 }
 
 export default useCounter
